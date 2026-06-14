@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.services.execution_service import ExecutionService
+from services.execution_service import ExecutionService
 
 
 class CodexService:

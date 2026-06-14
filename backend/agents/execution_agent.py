@@ -5,15 +5,15 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from backend.prompts.execution_prompt import EXECUTION_SYSTEM_PROMPT, build_execution_user_prompt
-from backend.schemas.execution_artifact import ExecutionArtifactPlan
-from backend.schemas.execution_plan_schema import ExecutionPlan
-from backend.schemas.execution_result import ExecutionResult
-from backend.schemas.project_schema import ProjectUnderstanding
-from backend.schemas.task_schema import Task
-from backend.services.codex_service import CodexService
-from backend.services.file_system_service import FileSystemService, FileSystemServiceError
-from backend.services.openai_service import ModelResponseError
+from prompts.execution_prompt import EXECUTION_SYSTEM_PROMPT, build_execution_user_prompt
+from schemas.execution_artifact import ExecutionArtifactPlan
+from schemas.execution_plan_schema import ExecutionPlan
+from schemas.execution_result import ExecutionResult
+from schemas.project_schema import ProjectUnderstanding
+from schemas.task_schema import Task
+from services.codex_service import CodexService
+from services.file_system_service import FileSystemService, FileSystemServiceError
+from services.openai_service import ModelResponseError
 
 logger = logging.getLogger(__name__)
 

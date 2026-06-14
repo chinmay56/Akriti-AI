@@ -6,13 +6,13 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from backend.prompts.planning_prompt import PLANNING_SYSTEM_PROMPT, build_planning_user_prompt
-from backend.schemas.execution_plan_schema import ExecutionPlan
-from backend.schemas.planning_request import PlanComplexity
-from backend.schemas.project_schema import ProjectUnderstanding
-from backend.schemas.task_schema import Task, TaskComplexity, TaskPriority
-from backend.services.openai_service import ModelResponseError
-from backend.services.planning_service import PlanningService
+from prompts.planning_prompt import PLANNING_SYSTEM_PROMPT, build_planning_user_prompt
+from schemas.execution_plan_schema import ExecutionPlan
+from schemas.planning_request import PlanComplexity
+from schemas.project_schema import ProjectUnderstanding
+from schemas.task_schema import Task, TaskComplexity, TaskPriority
+from services.openai_service import ModelResponseError
+from services.planning_service import PlanningService
 
 logger = logging.getLogger(__name__)
 

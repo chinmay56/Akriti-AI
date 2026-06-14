@@ -4,9 +4,9 @@ import logging
 
 from fastapi import APIRouter, HTTPException, status
 
-from backend.agents.chat_agent import ChatAgent
-from backend.schemas.chat_schema import ChatRequest, ChatResponse
-from backend.services.openai_service import InvalidAPIKeyError, ModelResponseError, OpenAIServiceError
+from agents.chat_agent import ChatAgent
+from schemas.chat_schema import ChatRequest, ChatResponse
+from services.openai_service import InvalidAPIKeyError, ModelResponseError, OpenAIServiceError
 
 logger = logging.getLogger(__name__)
 

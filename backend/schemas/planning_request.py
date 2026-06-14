@@ -4,7 +4,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict
 
-from backend.schemas.project_schema import ProjectUnderstanding
+from schemas.project_schema import ProjectUnderstanding
 
 
 PlanComplexity = Literal["simple", "medium", "hard"]

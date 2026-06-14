@@ -4,11 +4,11 @@ import logging
 
 from fastapi import APIRouter, HTTPException, status
 
-from backend.agents.planning_agent import PlanningAgent, PlanningValidationError
-from backend.schemas.execution_plan_schema import ExecutionPlan
-from backend.schemas.planning_request import PlanningRequest
-from backend.schemas.project_schema import ProjectUnderstanding
-from backend.services.openai_service import InvalidAPIKeyError, ModelResponseError, OpenAIServiceError
+from agents.planning_agent import PlanningAgent, PlanningValidationError
+from schemas.execution_plan_schema import ExecutionPlan
+from schemas.planning_request import PlanningRequest
+from schemas.project_schema import ProjectUnderstanding
+from services.openai_service import InvalidAPIKeyError, ModelResponseError, OpenAIServiceError
 
 logger = logging.getLogger(__name__)
 

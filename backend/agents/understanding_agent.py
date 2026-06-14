@@ -4,12 +4,12 @@ import logging
 
 from pydantic import ValidationError
 
-from backend.prompts.understanding_prompt import (
+from prompts.understanding_prompt import (
     UNDERSTANDING_SYSTEM_PROMPT,
     build_understanding_user_prompt,
 )
-from backend.schemas.project_schema import ProjectUnderstanding
-from backend.services.openai_service import ModelResponseError, OpenAIService
+from schemas.project_schema import ProjectUnderstanding
+from services.openai_service import ModelResponseError, OpenAIService
 
 logger = logging.getLogger(__name__)
 

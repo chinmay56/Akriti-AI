@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from backend.schemas.execution_artifact import EXECUTION_ARTIFACT_PLAN_JSON_SCHEMA
+from schemas.execution_artifact import EXECUTION_ARTIFACT_PLAN_JSON_SCHEMA
 
 
 EXECUTION_SYSTEM_PROMPT = f"""

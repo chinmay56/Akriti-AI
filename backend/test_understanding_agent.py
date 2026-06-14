@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.agents.understanding_agent import UnderstandingAgent
+from agents.understanding_agent import UnderstandingAgent
 
 
 SAMPLE_PROJECT_DESCRIPTION = """

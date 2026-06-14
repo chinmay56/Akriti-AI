@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from backend.schemas.chat_schema import CHAT_MODEL_RESPONSE_JSON_SCHEMA
+from schemas.chat_schema import CHAT_MODEL_RESPONSE_JSON_SCHEMA
 
 
 CHAT_SYSTEM_PROMPT = f"""

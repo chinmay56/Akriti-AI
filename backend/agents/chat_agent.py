@@ -4,12 +4,12 @@ import logging
 
 from pydantic import ValidationError
 
-from backend.prompts.chat_prompt import CHAT_SYSTEM_PROMPT, build_chat_user_prompt
-from backend.schemas.chat_schema import ChatModelResponse, ChatRequest, ChatResponse
-from backend.schemas.execution_artifact import CodeArtifact
-from backend.services.chat_service import ChatService
-from backend.services.file_system_service import FileSystemService, FileSystemServiceError
-from backend.services.openai_service import ModelResponseError
+from prompts.chat_prompt import CHAT_SYSTEM_PROMPT, build_chat_user_prompt
+from schemas.chat_schema import ChatModelResponse, ChatRequest, ChatResponse
+from schemas.execution_artifact import CodeArtifact
+from services.chat_service import ChatService
+from services.file_system_service import FileSystemService, FileSystemServiceError
+from services.openai_service import ModelResponseError
 
 logger = logging.getLogger(__name__)
 

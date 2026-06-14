@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import json
 
-from backend.schemas.execution_plan_schema import EXECUTION_PLAN_JSON_SCHEMA
-from backend.schemas.planning_request import PlanComplexity
-from backend.schemas.project_schema import ProjectUnderstanding
+from schemas.execution_plan_schema import EXECUTION_PLAN_JSON_SCHEMA
+from schemas.planning_request import PlanComplexity
+from schemas.project_schema import ProjectUnderstanding
 
 
 PLANNING_SYSTEM_PROMPT = f"""

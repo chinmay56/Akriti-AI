@@ -5,7 +5,7 @@ import logging
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, Field
 
-from backend.services.file_system_service import FileSystemService, FileSystemServiceError
+from services.file_system_service import FileSystemService, FileSystemServiceError
 
 logger = logging.getLogger(__name__)
 

@@ -7,8 +7,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from backend.schemas.code_change import CodeChange
-from backend.schemas.execution_artifact import CodeArtifact
+from schemas.code_change import CodeChange
+from schemas.execution_artifact import CodeArtifact
 
 logger = logging.getLogger(__name__)
 BACKEND_DIR = Path(__file__).resolve().parents[1]

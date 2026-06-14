@@ -11,7 +11,7 @@ from typing import Any
 from dotenv import load_dotenv
 from openai import APIConnectionError, APIStatusError, AuthenticationError, OpenAI
 
-from backend.schemas.project_schema import PROJECT_UNDERSTANDING_JSON_SCHEMA
+from schemas.project_schema import PROJECT_UNDERSTANDING_JSON_SCHEMA
 
 logger = logging.getLogger(__name__)
 BACKEND_DIR = Path(__file__).resolve().parents[1]

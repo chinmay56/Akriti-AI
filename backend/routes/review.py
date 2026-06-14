@@ -5,10 +5,10 @@ import logging
 
 from fastapi import APIRouter
 
-from backend.agents.chat_agent import ChatAgent
-from backend.schemas.chat_schema import ChatRequest
-from backend.schemas.review_schema import ReviewRequest, ReviewResponse
-from backend.services.file_system_service import FileSystemService
+from agents.chat_agent import ChatAgent
+from schemas.chat_schema import ChatRequest
+from schemas.review_schema import ReviewRequest, ReviewResponse
+from services.file_system_service import FileSystemService
 
 logger = logging.getLogger(__name__)
 

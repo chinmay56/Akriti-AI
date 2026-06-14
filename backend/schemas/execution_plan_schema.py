@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-from backend.schemas.task_schema import Task
+from schemas.task_schema import Task
 
 
 class ExecutionPlan(BaseModel):

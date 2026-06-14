@@ -3,9 +3,9 @@ from __future__ import annotations
 import pytest
 from pydantic import ValidationError
 
-from backend.agents.planning_agent import PlanningAgent
-from backend.schemas.execution_plan_schema import ExecutionPlan
-from backend.schemas.project_schema import ProjectUnderstanding
+from agents.planning_agent import PlanningAgent
+from schemas.execution_plan_schema import ExecutionPlan
+from schemas.project_schema import ProjectUnderstanding
 
 
 class FakePlanningService:

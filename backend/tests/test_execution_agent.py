@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import pytest
 
-from backend.agents.execution_agent import ExecutionAgent, ExecutionValidationError
-from backend.schemas.execution_plan_schema import ExecutionPlan
-from backend.schemas.project_schema import ProjectUnderstanding
-from backend.schemas.task_schema import Task
-from backend.services.file_system_service import FileSystemService
+from agents.execution_agent import ExecutionAgent, ExecutionValidationError
+from schemas.execution_plan_schema import ExecutionPlan
+from schemas.project_schema import ProjectUnderstanding
+from schemas.task_schema import Task
+from services.file_system_service import FileSystemService
 
 
 class FakeCodexService:

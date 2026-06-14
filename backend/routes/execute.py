@@ -4,10 +4,10 @@ import logging
 
 from fastapi import APIRouter, HTTPException, status
 
-from backend.agents.execution_agent import ExecutionAgent, ExecutionValidationError
-from backend.schemas.execution_request import ExecutionRequest
-from backend.schemas.execution_result import ExecutionResult
-from backend.services.openai_service import InvalidAPIKeyError, ModelResponseError, OpenAIServiceError
+from agents.execution_agent import ExecutionAgent, ExecutionValidationError
+from schemas.execution_request import ExecutionRequest
+from schemas.execution_result import ExecutionResult
+from services.openai_service import InvalidAPIKeyError, ModelResponseError, OpenAIServiceError
 
 logger = logging.getLogger(__name__)
 

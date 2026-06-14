@@ -7,9 +7,9 @@ from pathlib import Path
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile, status
 from pydantic import BaseModel, Field
 
-from backend.agents.understanding_agent import UnderstandingAgent
-from backend.schemas.project_schema import ProjectUnderstanding
-from backend.services.openai_service import InvalidAPIKeyError, ModelResponseError, OpenAIServiceError
+from agents.understanding_agent import UnderstandingAgent
+from schemas.project_schema import ProjectUnderstanding
+from services.openai_service import InvalidAPIKeyError, ModelResponseError, OpenAIServiceError
 
 logger = logging.getLogger(__name__)
 

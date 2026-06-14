@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from backend.schemas.project_schema import PROJECT_UNDERSTANDING_JSON_SCHEMA
+from schemas.project_schema import PROJECT_UNDERSTANDING_JSON_SCHEMA
 
 
 UNDERSTANDING_SYSTEM_PROMPT = f"""

@@ -4,7 +4,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from backend.schemas.code_change import CodeChange
+from schemas.code_change import CodeChange
 
 
 ExecutionStatus = Literal["completed", "failed", "needs_review"]

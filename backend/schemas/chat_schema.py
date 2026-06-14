@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from backend.schemas.code_change import CodeChange
-from backend.schemas.execution_artifact import CodeArtifact
+from schemas.code_change import CodeChange
+from schemas.execution_artifact import CodeArtifact
 
 
 class ChatRequest(BaseModel):
