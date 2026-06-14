@@ -9,6 +9,9 @@ A production-ready AI Software Engineering Assistant with document intelligence,
 - OpenAI SDK
 - Pydantic
 - python-dotenv
+- Next.js
+- TypeScript
+- Framer Motion
 
 ## Project Structure
 
@@ -25,9 +28,10 @@ Akriti/
 |   |-- requirements.txt
 |   `-- .env.example
 |-- frontend/
-|   |-- index.html
-|   |-- styles.css
-|   `-- app.js
+|   |-- app/
+|   |-- package.json
+|   |-- next.config.mjs
+|   `-- tsconfig.json
 |-- extension/
 |   |-- src/
 |   |-- manifest.json
@@ -37,10 +41,10 @@ Akriti/
 `-- .gitignore
 ```
 
-The `frontend/` folder contains the Akriti web UI. FastAPI serves it at `/` and serves its assets from `/static`.
+The `frontend/` folder contains the Akriti Next.js + TypeScript web UI. FastAPI runs as the API backend.
 The `extension/` folder contains the Chrome visual review extension source. Its `node_modules/` and `dist/` folders are intentionally ignored.
 
-## Setup
+## Backend Setup
 
 ```bash
 cd backend
@@ -64,22 +68,41 @@ LOG_LEVEL=INFO
 
 ## Run Server
 
-From the repository root:
+Run the backend API from the repository root:
 
-```bash
-uvicorn backend.main:app --reload
+```cmd
+cd C:\Users\Nikhi\OneDrive\เอกสาร\agents
+backend\.venv\Scripts\activate
+python -m uvicorn backend.main:app --reload --port 8010
+```
+
+Run the Next.js frontend in a second terminal:
+
+```cmd
+cd C:\Users\Nikhi\OneDrive\เอกสาร\agents\frontend
+set NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8010
+npm install
+npm run dev
+```
+
+The frontend proxies `/api/*` requests to `http://127.0.0.1:8010` by default. To point it to another backend URL, set `AKRITI_API_BASE_URL` before starting `npm run dev`.
+
+The application UI will be available at:
+
+```text
+http://localhost:3000
 ```
 
 The API will be available at:
 
 ```text
-http://127.0.0.1:8000
+http://127.0.0.1:8010
 ```
 
 Health check:
 
 ```bash
-curl http://127.0.0.1:8000/health
+curl http://127.0.0.1:8010/health
 ```
 
 ## Analyze Project Text

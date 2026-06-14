@@ -6,8 +6,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 
 from backend.routes.analyze import router as analyze_router
 from backend.routes.chat import router as chat_router
@@ -17,7 +16,6 @@ from backend.routes.planning import router as planning_router
 from backend.routes.review import router as review_router
 
 BASE_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = BASE_DIR.parent
 load_dotenv(BASE_DIR / ".env")
 
 logging.basicConfig(
@@ -31,9 +29,24 @@ app = FastAPI(
     version="1.0.0",
 )
 
-FRONTEND_DIR = PROJECT_ROOT / "frontend"
+cors_origins = [
+    origin.strip()
+    for origin in os.getenv(
+        "CORS_ORIGINS",
+        "http://localhost:3000,http://127.0.0.1:3000,http://localhost:8010,http://127.0.0.1:8010",
+    ).split(",")
+    if origin.strip()
+]
 
-app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=cors_origins,
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1):\d+",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(analyze_router)
 app.include_router(planning_router)
 app.include_router(execute_router)
@@ -43,8 +56,11 @@ app.include_router(review_router)
 
 
 @app.get("/", include_in_schema=False)
-def app_ui() -> FileResponse:
-    return FileResponse(FRONTEND_DIR / "index.html")
+def api_root() -> dict[str, str]:
+    return {
+        "name": "Akriti API",
+        "frontend": "Run the Next.js frontend from the frontend folder on http://localhost:3000.",
+    }
 
 
 @app.get("/health")
