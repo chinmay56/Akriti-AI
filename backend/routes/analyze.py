@@ -69,12 +69,21 @@ async def analyze_uploaded_file(
         raise _to_http_exception(exc) from exc
 
 
+SUPPORTED_IMAGE_CONTENT_TYPES = {
+    "image/png",
+    "image/jpeg",
+    "image/jpg",
+    "image/webp",
+    "image/gif",
+}
+
+
 def _is_text_upload(suffix: str, content_type: str | None) -> bool:
     return suffix in TEXT_EXTENSIONS or (content_type or "").startswith("text/")
 
 
 def _is_image_upload(suffix: str, content_type: str | None) -> bool:
-    return suffix in IMAGE_EXTENSIONS or (content_type or "").startswith("image/")
+    return suffix in IMAGE_EXTENSIONS or (content_type or "").lower() in SUPPORTED_IMAGE_CONTENT_TYPES
 
 
 def _decode_text_file(file_bytes: bytes) -> str:
