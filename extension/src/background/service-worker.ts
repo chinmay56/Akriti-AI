@@ -24,7 +24,8 @@ function getState(): ExtensionState {
 async function loadStorage() {
   const data = await chrome.storage.local.get(['settings', 'timeline']);
   if (data.settings) settings = { ...DEFAULT_SETTINGS, ...data.settings };
-  if (!settings.backendUrl || settings.backendUrl.includes('localhost:8000/review')) {
+  const legacyLocalReview = /localhost:8000\/review|127\.0\.0\.1:8010\/review/;
+  if (!settings.backendUrl || legacyLocalReview.test(settings.backendUrl)) {
     settings.backendUrl = DEFAULT_SETTINGS.backendUrl;
     await saveSettings();
   }

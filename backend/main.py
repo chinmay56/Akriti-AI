@@ -33,7 +33,7 @@ cors_origins = [
     origin.strip()
     for origin in os.getenv(
         "CORS_ORIGINS",
-        "http://localhost:3000,http://127.0.0.1:3000,http://localhost:8010,http://127.0.0.1:8010",
+        "http://localhost:3000,http://127.0.0.1:3000,https://akriti-ai-drab.vercel.app",
     ).split(",")
     if origin.strip()
 ]
@@ -41,7 +41,7 @@ cors_origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins,
-    allow_origin_regex=r"http://(localhost|127\.0\.0\.1):\d+",
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1):\d+",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -59,7 +59,7 @@ app.include_router(review_router)
 def api_root() -> dict[str, str]:
     return {
         "name": "Akriti API",
-        "frontend": "Run the Next.js frontend from the frontend folder on http://localhost:3000.",
+        "frontend": "Set the frontend origin in CORS_ORIGINS or run the frontend on localhost:3000 for local development.",
     }
 
 

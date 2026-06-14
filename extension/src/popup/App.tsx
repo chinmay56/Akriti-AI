@@ -88,7 +88,7 @@ export default function App() {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setSettings((s: ExtensionSettings) => ({ ...s, backendUrl: e.target.value }))
             }
-            placeholder="http://127.0.0.1:8010/review"
+            placeholder="https://akriti-ai-production.up.railway.app/review"
           />
           <label className="field-label">Auth Token</label>
           <input

@@ -129,7 +129,7 @@ export interface ExtensionSettings {
 }
 
 export const DEFAULT_SETTINGS: ExtensionSettings = {
-  backendUrl: 'http://127.0.0.1:8010/review',
+  backendUrl: 'https://akriti-ai-production.up.railway.app/review',
   backendAuthToken: '',
   reviewModeEnabled: false,
 };

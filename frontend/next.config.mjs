@@ -1,4 +1,4 @@
-const backendUrl = process.env.AKRITI_API_BASE_URL || "http://127.0.0.1:8010";
+const backendUrl = process.env.AKRITI_API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8010";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

@@ -100,16 +100,7 @@ type ChatMessage = {
 
 type EditorTab = "brief" | "understanding" | "plan" | "code";
 
-const DIRECT_API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8010";
-const API_BASE_CANDIDATES = Array.from(
-  new Set([
-    DIRECT_API_BASE,
-    DIRECT_API_BASE.includes("127.0.0.1")
-      ? DIRECT_API_BASE.replace("127.0.0.1", "localhost")
-      : DIRECT_API_BASE.replace("localhost", "127.0.0.1"),
-    "/api",
-  ]),
-);
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "/api";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -155,21 +146,18 @@ function fetchWithTimeout(url: string, init?: RequestInit, timeoutMs = 180000): 
 
 async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
   const failures: string[] = [];
-
-  for (const baseUrl of API_BASE_CANDIDATES) {
-    try {
-      const response = await fetchWithTimeout(`${baseUrl}${path}`, init);
-      if (![500, 502, 503, 504].includes(response.status)) {
-        return response;
-      }
-      failures.push(`${baseUrl}: HTTP ${response.status}`);
-    } catch (error) {
-      failures.push(`${baseUrl}: ${error instanceof Error ? error.message : "network error"}`);
+  try {
+    const response = await fetchWithTimeout(`${API_BASE}${path}`, init);
+    if (![500, 502, 503, 504].includes(response.status)) {
+      return response;
     }
+    failures.push(`${API_BASE}: HTTP ${response.status}`);
+  } catch (error) {
+    failures.push(`${API_BASE}: ${error instanceof Error ? error.message : "network error"}`);
   }
 
   throw new Error(
-    `Could not connect to the Akriti backend. Start FastAPI on port 8010 and try again.\n\nCommand:\npython -m uvicorn backend.main:app --reload --port 8010\n\nChecked:\n${failures.join("\n")}`,
+    `Could not connect to the Akriti backend at ${API_BASE}${path}.\n\nChecked:\n${failures.join("\n")}`,
   );
 }
 
@@ -761,7 +749,7 @@ export default function Home() {
 
           <footer className="statusbar">
             <div><span>Spaces: 2</span><span>UTF-8</span><span>TypeScript React</span></div>
-            <div><span>AI: Active</span><span>{DIRECT_API_BASE}</span></div>
+            <div><span>AI: Active</span><span>{API_BASE}</span></div>
           </footer>
         </section>
 
