@@ -8,12 +8,12 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.routes.analyze import router as analyze_router
-from backend.routes.chat import router as chat_router
-from backend.routes.execute import router as execute_router
-from backend.routes.files import router as files_router
-from backend.routes.planning import router as planning_router
-from backend.routes.review import router as review_router
+from routes.analyze import router as analyze_router
+from routes.chat import router as chat_router
+from routes.execute import router as execute_router
+from routes.files import router as files_router
+from routes.planning import router as planning_router
+from routes.review import router as review_router
 
 BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
