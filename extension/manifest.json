@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Akriti Visual Review",
+  "description": "Visual review layer for the Akriti AI platform. Click any UI element to request AI-powered changes.",
+  "version": "1.0.0",
+  "minimum_chrome_version": "114",
+  "action": {
+    "default_title": "Akriti Visual Review",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/content-script.ts"],
+      "css": ["src/content/content-script.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "permissions": ["activeTab", "tabs", "storage", "scripting", "webNavigation"],
+  "host_permissions": ["<all_urls>", "http://localhost/*", "http://127.0.0.1/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

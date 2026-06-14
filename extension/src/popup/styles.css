@@ -1,0 +1,156 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  width: 320px;
+}
+
+.app { display: flex; flex-direction: column; }
+
+/* ── Big status block ── */
+.status-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 14px;
+  border-bottom: 2px solid;
+  transition: background 0.2s, border-color 0.2s;
+}
+.status-block.on {
+  background: rgba(16,185,129,0.1);
+  border-color: #10b981;
+}
+.status-block.off {
+  background: rgba(100,116,139,0.08);
+  border-color: #1e293b;
+}
+
+.status-icon { font-size: 22px; flex-shrink: 0; }
+
+.status-text { flex: 1; min-width: 0; }
+.status-label { font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; }
+.status-value {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.status-block.on .status-value { color: #4ade80; }
+.status-block.off .status-value { color: #64748b; }
+
+.toggle-btn {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  transition: all 0.15s;
+}
+.toggle-btn.on {
+  background: rgba(239,68,68,0.15);
+  color: #f87171;
+  border: 1px solid rgba(239,68,68,0.3);
+}
+.toggle-btn.on:hover { background: rgba(239,68,68,0.25); }
+.toggle-btn.off {
+  background: #10b981;
+  color: #fff;
+}
+.toggle-btn.off:hover { background: #059669; }
+
+/* ── Tip bar ── */
+.tip {
+  background: rgba(99,102,241,0.1);
+  border-bottom: 1px solid rgba(99,102,241,0.2);
+  color: #818cf8;
+  font-size: 11px;
+  padding: 6px 14px;
+  text-align: center;
+}
+
+/* ── Settings toggle ── */
+.settings-toggle {
+  padding: 9px 14px;
+  font-size: 12px;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 1px solid #1e293b;
+  user-select: none;
+}
+.settings-toggle:hover { color: #94a3b8; background: #1e293b; }
+
+/* ── Section ── */
+.section {
+  padding: 10px 14px 12px;
+  border-bottom: 1px solid #1e293b;
+}
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 8px;
+  margin-bottom: 3px;
+}
+.field-label:first-of-type { margin-top: 0; }
+
+.field-input {
+  width: 100%;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 12px;
+  padding: 6px 8px;
+  outline: none;
+}
+.field-input:focus { border-color: #6366f1; }
+
+.save-btn {
+  margin-top: 10px;
+  background: #6366f1;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 16px;
+  width: 100%;
+}
+.save-btn:hover { background: #4f46e5; }
+
+/* ── Timeline ── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.empty { color: #475569; font-size: 12px; text-align: center; padding: 14px 0; }
+
+.timeline-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 6px 8px;
+  background: #1e293b;
+  border-radius: 6px;
+}
+.tl-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.tl-body { flex: 1; min-width: 0; }
+.tl-summary { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl-time { font-size: 10px; color: #475569; margin-top: 1px; }

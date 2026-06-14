@@ -28,11 +28,17 @@ Akriti/
 |   |-- index.html
 |   |-- styles.css
 |   `-- app.js
+|-- extension/
+|   |-- src/
+|   |-- manifest.json
+|   |-- package.json
+|   `-- vite.config.ts
 |-- README.md
 `-- .gitignore
 ```
 
 The `frontend/` folder contains the Akriti web UI. FastAPI serves it at `/` and serves its assets from `/static`.
+The `extension/` folder contains the Chrome visual review extension source. Its `node_modules/` and `dist/` folders are intentionally ignored.
 
 ## Setup
 
