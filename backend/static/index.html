@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Akriti</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="input-panel" aria-labelledby="page-title">
+        <div class="header-row">
+          <div>
+            <p class="eyebrow">AI Software Engineering Assistant</p>
+            <h1 id="page-title">Akriti</h1>
+          </div>
+          <a class="docs-link" href="/docs" target="_blank" rel="noreferrer">API Docs</a>
+        </div>
+
+        <form id="analyze-form" class="analyze-form">
+          <label class="field-label" for="file">Optional file</label>
+          <input
+            id="file"
+            name="file"
+            type="file"
+            accept=".txt,.md,.markdown,.json,.csv,.tsv,.yaml,.yml,.xml,.png,.jpg,.jpeg,.webp,.gif"
+          />
+
+          <label class="field-label" for="complexity">Project complexity</label>
+          <select id="complexity" name="complexity">
+            <option value="simple">Simple</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+
+          <div class="actions">
+            <button id="submit-button" type="submit">Analyze</button>
+            <button id="clear-button" type="button" class="secondary">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="output-panel" aria-labelledby="output-title">
+        <div class="output-header">
+          <div>
+            <p class="eyebrow">Structured output</p>
+            <h2 id="output-title">Project Understanding</h2>
+          </div>
+          <div class="output-actions">
+            <button id="plan-button" type="button" class="secondary compact" disabled>Create Plan</button>
+            <button id="edit-plan-button" type="button" class="secondary compact" disabled>Edit Plan</button>
+            <button id="save-plan-button" type="button" class="secondary compact" disabled>Save Plan</button>
+            <button id="execute-button" type="button" class="secondary compact" disabled>Execute Next Task</button>
+            <button id="run-all-button" type="button" class="secondary compact" disabled>Run All Tasks</button>
+            <button id="open-workspace-button" type="button" class="secondary compact">Files</button>
+            <span id="status-pill" class="status-pill">Idle</span>
+          </div>
+        </div>
+
+        <div id="error-box" class="error-box" hidden></div>
+        <pre id="output" class="output-box">Run an analysis to see the validated JSON response here.</pre>
+      </section>
+
+      <div id="workspace-modal" class="workspace-modal" hidden>
+        <section class="workspace-panel" aria-labelledby="workspace-title">
+          <div class="workspace-header">
+            <div>
+              <p class="eyebrow">Generated code workspace</p>
+              <h2 id="workspace-title">Files</h2>
+              <p id="workspace-root" class="workspace-root">Downloads output folder will appear here.</p>
+            </div>
+            <div class="modal-actions">
+              <button id="refresh-files-button" type="button" class="secondary compact">Refresh Files</button>
+              <button id="close-workspace-button" type="button" class="secondary compact">Close</button>
+            </div>
+          </div>
+
+          <div class="workspace-grid">
+            <aside class="file-sidebar">
+              <label class="field-label" for="project-select">Project folder</label>
+              <select id="project-select"></select>
+              <div id="file-list" class="file-list"></div>
+            </aside>
+
+            <section class="file-editor" aria-label="File editor">
+              <div class="editor-toolbar">
+                <span id="active-file">No file selected</span>
+                <button id="save-file-button" type="button" class="secondary compact" disabled>Save File</button>
+              </div>
+              <textarea id="file-content" class="code-editor" spellcheck="false" placeholder="Select a generated file to view or edit it."></textarea>
+            </section>
+          </div>
+        </section>
+      </div>
+
+      <section class="chat-panel" aria-labelledby="chat-title">
+        <div class="workspace-header">
+          <div>
+            <p class="eyebrow">Codex-style assistant</p>
+            <h2 id="chat-title">Chat</h2>
+            <p class="workspace-root">Ask for fixes, edits, explanations, or new features for the selected generated project.</p>
+          </div>
+          <label class="chat-toggle">
+            <input id="apply-chat-changes" type="checkbox" checked />
+            Apply changes
+          </label>
+        </div>
+
+        <div id="chat-messages" class="chat-messages"></div>
+
+        <form id="chat-form" class="chat-form">
+          <textarea
+            id="chat-input"
+            rows="4"
+            placeholder="Example: Fix the upload error in the selected project and apply the code changes."
+          ></textarea>
+          <button id="chat-send-button" type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
