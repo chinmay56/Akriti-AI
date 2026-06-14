@@ -1,6 +1,6 @@
 # Akriti
 
-A production-ready FastAPI backend for an AI Software Engineering Assistant. The Understanding Agent analyzes project descriptions, documents, architecture diagrams, ER diagrams, flowcharts, and UI mockups, then converts them into validated structured project knowledge.
+A production-ready AI Software Engineering Assistant with document intelligence, diagram understanding, planning, execution, generated project file editing, and a Codex-style chat workflow.
 
 ## Tech Stack
 
